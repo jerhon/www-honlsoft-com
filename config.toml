@@ -1,4 +1,4 @@
-baseurl = "https://www.honlsoft.com"
+baseurl = ""
 title = "honlSoft"
 theme = "hugo-coder"
 languagecode = "en"
