@@ -18,12 +18,12 @@ disqusShortname = "yourdiscussshortname"
     info = "Full Stack Developer and Architect"
     description = "Jeremy Honl's personal website"
     keywords = "blog,developer,personal"
-    avatarurl = "images/avatar.jpg"
+    avatarurl = "images/profile.jpg"
 
     favicon_32 = "/img/favicon-32x32.png"
     favicon_16 = "/img/favicon-16x16.png"
 
-    footercontent = "Enter a text here."
+#    footercontent = "Enter a text here."
 
     hidecredits = false
     hidecopyright = false
