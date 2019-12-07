@@ -1,0 +1,14 @@
+{{define "content"}}
+<div class="content">
+    {{ partial "breadcrumb.html" .}}
+    <section class="article flex-grow">
+        <article>
+            <header>
+                <h1>{{ .Title }}</h1>
+            </header>
+        
+            {{ .Content }}
+        </article>
+    </section>
+</div>
+{{end}}

@@ -1,0 +1,16 @@
+name = "honlSoft"
+license = "MIT"
+# licenselink = "https://github.com/jerhon/www-honlsoft-com/blob/master/LICENSE.md"
+description = "honlSoft page template"
+homepage = "https://www.honlsoft.com"
+tags = [
+  "company"
+]
+features = [
+  "pagination"
+]
+min_version = "0.54"
+
+[author]
+  name = "Jeremy Honl"
+  homepage = "https://www.honlsoft.com"

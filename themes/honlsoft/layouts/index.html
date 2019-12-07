@@ -1,0 +1,11 @@
+{{ define "content"}}
+<section class="tagline flex-min">
+    <h2>Building software shouldn't feel like climbing a mountain.</h2>
+</section>
+
+<nav class="block-nav flex-grow">
+    {{ range .Site.Menus.home }}
+        <a href="{{ .URL }}" class="card">{{ upper .Name }}</a>
+    {{ end }}
+</nav>
+{{ end }}

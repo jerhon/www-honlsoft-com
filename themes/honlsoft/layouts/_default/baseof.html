@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>{{ .Site.Title }}</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+        <link rel="stylesheet" type="text/css" href="https://yarnpkg.com/en/package/normalize.css" />
+
+        {{ $baseSass := resources.Get "scss/honlsoft.scss" }}
+        {{ $baseStyles := $baseSass | resources.ExecuteAsTemplate "base.scss" . | resources.ToCSS }}
+        <link rel="stylesheet" href="{{ $baseStyles.RelPermalink }}" >
+
+        {{ $imagesSass := resources.Get "scss/images.scss" }}
+        {{ $imagesStyles := $imagesSass | resources.ExecuteAsTemplate "images.scss" . | resources.ToCSS }}
+        <link rel="stylesheet" href="{{ $imagesStyles.RelPermalink }}" >
+
+        {{ block "head" . }}{{ end }}
+    </head>
+    <body>
+        <div class="container">
+            <div id="cover-image">
+                {{ partial "header.html" . }}
+
+                {{ block "content" . }}{{ end }}
+                
+                {{ partial "footer.html" . }}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+
+
+{{ $image := resources.Get "images/mountains.jpg" | images.Filter (images.Brightness -45) }}
+{{ $4k_image := $image.Resize "x2160" }}
+{{ $hd_image := $image.Resize "x1080" }}
+{{ $hd_small := $image.Resize "x768" }}
+
+
+#cover-image {
+    background-image: url({{ $image.RelPermalink }});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+    overflow: clip;
+}

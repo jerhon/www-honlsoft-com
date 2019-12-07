@@ -1,0 +1,223 @@
+
+ /** Base styles **/
+body {
+    font-family: 'Open Sans';
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    background-color: #6d6d6d;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Oswald';
+    color: white;
+}
+
+
+div.container {
+    width: 100%;
+    height: 100vh;
+}
+
+
+#page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-color: #333;
+}
+
+
+#cover-image {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+
+.centered {
+    text-align: center;
+}
+
+
+a {
+    color: white;
+}
+
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+ 
+    background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(44,44,44,0.125) 100%);
+    color: white;
+
+    padding: 20px;
+    padding-left: 50px;
+    margin: 0px;
+    justify-content: baseline;
+
+    h1 {
+        flex: 1 1 auto;
+    }
+
+    a {
+        flex: 0 0 auto;
+        align-items: center;
+    }
+
+    img {
+        margin: 40px;
+        margin-left: 5px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+}
+
+
+.small-text {
+    font-size: 0.75em;
+}
+
+
+.tagline {
+    color: white;
+    font-family: 'Oswald';
+    align-content: center;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.block-nav {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px;
+    width: 250px;
+    height: 150px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(44,44,44,0.30) 100%);
+    color: white;
+    
+    margin: 25px;
+    text-align: center;
+    vertical-align: middle; 
+    justify-content: center;
+    align-content: center;
+    
+    font-size: 30px;
+    font-family: 'Oswald';
+}
+
+
+.card:hover {
+    background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(44,44,44,0.40) 100%);
+}
+
+
+.dynamic-card {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(44,44,44,0.40) 100%);
+    color: white;
+    
+    margin: 25px;
+    text-align: center;
+    vertical-align: middle; 
+    justify-content: center;
+    align-content: center;
+    
+    font-size: 30px;
+    font-family: 'Oswald';
+}
+
+
+.dynamic-card:hover {
+    background: linear-gradient(90deg, rgba(255,255,255,0.6) 0%, rgba(44,44,44,0.70) 100%);
+}
+
+
+.icon {
+    height: 40px;
+
+    img {
+        max-height: 40px;
+    }
+}
+
+.flex-grow {
+    flex: 1 1 auto;
+}
+.flex-min {
+    flex: 0 0 auto;
+}
+.full-width {
+    width: 100%;
+}
+.padding-20 {
+    margin: 20px;
+}
+
+.content {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.article {
+    font-family: 'Open Sans';
+    background: rgba(255,255,255,0.90);
+    margin-top: 20px;
+    padding: 20px;
+    color: black;
+
+    h1, h2, h3, h4, h5, h6 {
+        color: black;
+
+    }
+
+    a {
+        color: black;
+    }
+}
+
+
+.breadcrumb {
+    padding-left: 20px;
+
+    color: white;
+    opacity: 0.8;
+
+    a {
+        font-size: .9em;
+    }
+}
+
+.pad-20-lr {
+    padding-left: 40px;
+}
+
+.pager {
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

@@ -1,0 +1,24 @@
+baseurl: "https://www.honlsoft.com/"
+title: "honlSoft"
+theme: "honlsoft"
+languagecode: "en"
+defaultcontentlanguage: "en"
+
+paginate: 20
+canonifyurls: true
+
+params:
+    author: "Jeremy Honl"
+    title: "honlSoft"
+    keywords:  "blog,developer,personal"
+    github:  "https://github.com/jerhon"
+    linkedin:  "https://linkedin.com/in/jhonl"
+
+menu:
+    home:
+        - name:  "Blog"
+          weight:  1
+          url:  "/blog/"
+        - name:  "About"
+          weight:  3
+          url:  "/about/"

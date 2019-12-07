@@ -1,0 +1,16 @@
+{{ $paginator := .Paginator }}
+{{ $startElem := add (mul (sub $paginator.PageNumber 1) $paginator.PageSize) 1 }}
+{{ $lastElem := sub (add $startElem $paginator.NumberOfElements) 1 }}
+<div class="pager">
+    {{ if .Paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}">&lt;&lt;</a>
+    {{else}}
+        &lt;&lt;
+    {{ end }}
+    {{ $startElem }} - {{ $lastElem }} of {{ .Paginator.TotalNumberOfElements }}
+    {{ if .Paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}">&gt;&gt;</a>
+    {{ else }}
+    &gt;&gt;
+    {{ end }}
+</div>
