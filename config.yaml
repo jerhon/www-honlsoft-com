@@ -7,6 +7,17 @@ defaultcontentlanguage: "en"
 paginate: 20
 canonifyurls: true
 
+markup:
+  highlight:
+    codeFences: true
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: vs
+    tabWidth: 4
+
 params:
     author: "Jeremy Honl"
     title: "honlSoft"
