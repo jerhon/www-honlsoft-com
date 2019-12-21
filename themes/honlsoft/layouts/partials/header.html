@@ -1,13 +1,12 @@
 <div class="title flex-min">
     <h1><a href="{{.Site.BaseURL}}">{{ upper .Site.Title }}</a></h1>
     <div>
-        {{ if .Site.Params.linkedin}}
-        {{ $linkedin := resources.Get "images/linked-in.png"  }}
+        {{ if .Site.Params.linkedin }}
+        {{ $linkedin := resources.Get "images/linked-in.png" }}
         <a href="{{ .Site.Params.linkedin }}" class="icon">
-            <img src="{{ $linkedin.RelPermalink }}" />   
+            <img src="{{ $linkedin.RelPermalink }}" />
         </a>
         {{ end }}
-
         {{ if .Site.Params.github}}
         {{ $github := resources.Get "images/github.png" | images.Filter (images.Invert) }}
         <a href="{{ .Site.Params.github }}" class="icon">

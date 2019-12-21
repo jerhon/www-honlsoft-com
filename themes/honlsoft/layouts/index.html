@@ -3,9 +3,9 @@
     <h2>Building software shouldn't feel like climbing a mountain.</h2>
 </section>
 
-<nav class="block-nav flex-grow">
+<nav class="card-nav flex-grow">
     {{ range .Site.Menus.home }}
-        <a href="{{ .URL }}" class="card">{{ upper .Name }}</a>
+        <a href="{{ .URL }}" class="fixed-card">{{ upper .Name }}</a>
     {{ end }}
 </nav>
 {{ end }}

@@ -1,7 +1,7 @@
 {{ $parent1 := .Parent }}
 {{ $parent2 := $parent1.Parent }}
 
-<div class="breadcrumb" class="pad-20-lr">
+<div class="breadcrumb pad-20-l">
     {{ if $parent2 }}
     <a href="{{ $parent2.URL }}">{{ $parent2.Title }}</a> /
     {{ end }}

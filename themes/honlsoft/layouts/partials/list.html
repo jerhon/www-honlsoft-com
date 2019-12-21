@@ -1,12 +1,10 @@
 {{ partial "breadcrumb.html"}}
-<section class="flex-grow padding-20">
-
+<nav class="flex-grow">
     {{ range .Paginator.Pages }}
     <a class="dynamic-card" href="{{ .Params.ExternalLink | default .RelPermalink }}">
       <div class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</div>
       <div>{{ .Title }}</div>
     </a>
     {{ end }}
-
-</section>
+</nav>
 {{ partial "pager.html" . }}

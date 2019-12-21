@@ -1,0 +1,43 @@
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+ 
+    background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(44,44,44,0.125) 100%);
+    color: white;
+
+    padding: 20px;
+    padding-left: 20px;
+    margin: 0px;
+    justify-content: baseline;
+    align-items: center;
+
+    h1 {
+        flex: 1 1 auto;
+    }
+
+    a {
+        flex: 0 0 auto;
+        align-items: center;
+    }
+
+    img {
+        margin-left: 5px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    .icon {
+        height: 40px;
+
+        img {
+            max-height: 40px;
+        }
+    }
+
+    @media only screen and (min-width: 1000px) {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+}
