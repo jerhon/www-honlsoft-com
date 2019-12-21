@@ -2,8 +2,8 @@
 <nav class="flex-grow">
     {{ range .Paginator.Pages }}
     <a class="dynamic-card" href="{{ .Params.ExternalLink | default .RelPermalink }}">
-      <div class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</div>
-      <div>{{ .Title }}</div>
+      <div class="date"><h3>{{ .Date.Format (.Site.Params.dateFormat | default "January 1, 2000" ) }}</h3></div>
+      <div><h3>{{ .Title }}</h3></div>
     </a>
     {{ end }}
 </nav>

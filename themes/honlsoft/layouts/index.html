@@ -5,7 +5,7 @@
 
 <nav class="card-nav flex-grow">
     {{ range .Site.Menus.home }}
-        <a href="{{ .URL }}" class="fixed-card">{{ upper .Name }}</a>
+        <a href="{{ .URL }}" class="fixed-card"><h2>{{ upper .Name }}</h2></a>
     {{ end }}
 </nav>
 {{ end }}
