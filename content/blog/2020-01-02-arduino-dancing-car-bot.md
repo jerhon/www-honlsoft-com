@@ -5,9 +5,9 @@ tags = ["arduino", "robotics"]
 categories = ["blog"]
 +++
 
-My kids received a robotics kit for Christmas.  [Here's an Amazon link to a similar car.](https://www.amazon.com/LAFVIN-Include-Ultrasonic-Bluetooth-Tutorial/dp/B07JN46YSW).  It was a fun project to put together to explain some of the inner workings of robotics.  My oldest has been working with scratch, so he really was interested in what 'real code' looks like.
+My kids received a robotics kit for Christmas.  [Here's an Amazon link to a similar car](https://www.amazon.com/LAFVIN-Include-Ultrasonic-Bluetooth-Tutorial/dp/B07JN46YSW).  It was a fun project to put together to explain some of the inner workings of robotics.  My oldest has been working with scratch, so he really was interested in what 'real code' looks like.
 
-It also gave me an excellent way to revist C/C++ programming as it had been a while since I had done any projects in it.
+It also gave me an excellent way to revisit C/C++ programming as it had been a while since I had done any projects in it.
 
 With the project, we did a dance-off.  Each member of our family came up with a robot dance. I had given them 5 different instructions they could give the robot.
 
