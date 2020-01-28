@@ -5,7 +5,7 @@ tags = ["arduino", "robotics", "threading", "protothreads"]
 categories = ["blog"]
 +++
 
-A few weeks ago I described my families new years celebration, building a arduino car bot that we used to have a family dance-off.  We've been playing around with the arduino bot, and I decided to make it automonously drive and avoid obstacles.
+A few weeks ago I described my families new years celebration, building a arduino car bot that we used to have a family dance-off.  We've been playing around with the arduino bot, and I decided to make it  drive and avoid obstacles autonomously.
 
 The bot has a servo at the front, with a ultrasonic distance sensor attached to it.  The servo turns the sensor in 180 degrees to effectively from side to side.  This gives the ability to roughly judge distance objects by the robot.
 
@@ -26,11 +26,11 @@ The algorithm took some tweeks especially around the angles to scan, and the dis
 
 There were a few challenges implementing this.
 
-I had a few problems with the ultrasonic sensor.  After online research and review of the library's code I was using, I found the measurements weren't working or implemented as well as I had hoped.  I found an alternate library named NewPing, and it does an excellent job and the distance measurements were much more reliable.  There are a number of libraries available for arduino for the HC-SR04, all with varying levels of quality, so watch out.
+I had a few problems with the ultrasonic sensor.  After online research and review of the library's code I was using, I found the measurements weren't working or implemented as well as I had hoped.  I found an alternate library named NewPing, and it does an excellent job and the distance measurements were much more reliable.  There are a number of libraries available for arduino for the HC-SR04, all with varying levels of quality, just another reminder to be careful of dependencies.
 
 Debugging was a challenge at times.  Implementing a physical indicator of when the robot detects something really aided the development.  For example, when the bot is trying to look for the closest thing to it, after it's done the servo will turn to point the sensor directly at that closest object.
 
-I've been using the [Windows Subsystem for Linux]() for development on my laptop.  I really enjoy being able to use the linux command line and tooling, and it also feels like I have a separated area where I can code.  Key to this has been VS Code and it's ability to remote into WSL to develop.  It is really slick, and with WSL2's immanent release, it's only going to get better.
+I've been using the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) for development on my laptop.  I really enjoy being able to use the linux command line and tooling, and it also feels like I have a separated area where I can code.  Key to this has been VS Code and it's ability to remote into WSL to develop.  It is really slick, and with WSL2's immanent release, it's only going to get better.
 
 The only downside to using WSL, is I've noticed odd behavior on the serial ports.  WSL does map the arduino connected to USB to one of it's tty devices.  However, I have issues connecting straight to the arduino through WSL.  First in a windows arduino IDE (not in WSL), I need to open Serial Monitor to establish a question.  After that has been done, then I can upload the program from the arduino extension from VS code living in WSL.  I don't know why it's a problem yet, but am hoping to figure it out sometime.
 
