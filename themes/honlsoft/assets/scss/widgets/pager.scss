@@ -1,0 +1,25 @@
+.previous {
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: white;
+    color: black;
+    opacity: 0.25;
+}
+.previous:hover {
+    opacity: 0.75;
+}
+
+.next {
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: white;
+    color: black;
+    opacity: 0.25;
+}
+.next:hover {
+    opacity: 0.75;
+}

@@ -3,14 +3,10 @@
 {{ $lastElem := sub (add $startElem $paginator.NumberOfElements) 1 }}
 <div class="pager">
     {{ if .Paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}">&lt;&lt;</a>
-    {{else}}
-        &lt;&lt;
+        <a class="previous" href="{{ $paginator.Prev.URL }}">&lt;&lt;</a>
     {{ end }}
     {{ $startElem }} - {{ $lastElem }} of {{ .Paginator.TotalNumberOfElements }}
     {{ if .Paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}">&gt;&gt;</a>
-    {{ else }}
-    &gt;&gt;
+        <a class="next" href="{{ $paginator.Next.URL }}">&gt;&gt;</a>
     {{ end }}
 </div>
