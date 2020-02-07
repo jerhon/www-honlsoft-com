@@ -12,7 +12,9 @@ I'm a software engineer and architect with over 14 years of professional softwar
 
 I'm currently Software Architect at Border States Electric.  There I have been involved in development for a wide range of projects ranging from integrations, mobile application, and web development.  This has been in a variety of different technology stacks such as .NET Core, Java, Spring Framework, AngularJS / Angular, Apache Cordova.  All this in just the first year on the Job!
 
-Previously, I worked for several years at Networked Energy Services.  I built server software to interact and manage a smart electricity grid.  This involved building highly scalable software that was able to communicate with hundreds of thousands of remote devices over a cellular network.  I worked on all facets of the software from API design, to low level communication such as integrating TLS libraries for security, testing tools development, build tools and processes, and many others.  I progressed in my career from being a software engineer to becoming a software architect.
+Previously, I worked for several years at Networked Energy Services.  I built server software to interact and manage a smart electricity grid.  This involved building highly scalable software that was able to communicate with hundreds of thousands of remote devices over a cellular network.  I worked on all facets of the software from API design, to low level communication such as integrating TLS libraries for security, testing tools development, build tools and processes, and many others.  
+
+I've progressed in my career from being a software engineer to now being a software architect.
 
 ## How I Started
 
