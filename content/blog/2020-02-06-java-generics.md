@@ -5,11 +5,11 @@ tags = ["java", "generics" ]
 categories = ["blog"]
 +++
 
-I've been working for about a year now building applications in Java with Spring Boot.  Don't get me wrong, I think Java is capable, and Spring Boot is a great framework that has no comparison in .NET, but in terms of being able to get things done C# and .NET are by far my favorite language/environment. 
+I've been working for about a year now building applications in Java with Spring Boot.  Don't get me wrong, I think Java is capable, and Spring Boot is a great framework that has no comparison in .NET.  However, in terms of being able to get things done C# and .NET are by far my favorite language/environment. 
 
-One thing I recently ran into is the use of generics in Java.  In particular I have a set of APIs and I'm conveying their requests and responses with DTOs.  I also have a database that's being developed via JPA entities.  Many of the APIs are just wrappers around being able to do something against the database.
+One thing I recently ran into is the use of generics in Java.  In particular, I have a set of APIs and I'm conveying their requests and responses with DTOs.  I also have a database that's being developed via JPA entities.  Many of the APIs are just wrappers around being able to do something against the database.
 
-Thus, I have a lot of boilerplate code to do this.
+Unfortunately, this takes a lot of boilerplate code.
 
 One of the key places this code can be reduced is via mapping libraries, and I've been using [Model Mapper](http://modelmapper.org/) as a way around this.  It worked great until still I started getting to collections.
 
@@ -23,6 +23,6 @@ The key loss was reflection.  Reflection is generally the act of being able to i
 
 This means, libraries such as Model Mapper are stuck.  They simply can't find out the information about these properties at runtime, and cannot make simple inferences.
 
-C# and .NET is much different in this regard.  When they released generics, they baked it into their CLR (common language runtime), the byte code interpreter for .NET.  This means, it is possible to find out the types during runtime while reflecting and thus, would be able to map in this case where Java cannot.
+C# and .NET is much different in this regard.  When they released generics, they baked it into their CLR (common language runtime), the byte code interpreter for .NET.  This means, it is possible to find out the types during runtime while reflecting and thus, mapping libraries would be able to map in these cases where similar Java libraries cannot.
 
 I miss .NET.
