@@ -14,8 +14,6 @@ I'm currently Software Architect at Border States Electric.  There I have been i
 
 Previously, I worked for several years at Networked Energy Services.  I built server software to interact and manage a smart electricity grid.  This involved building highly scalable software that was able to communicate with hundreds of thousands of remote devices over a cellular network.  I worked on all facets of the software from API design, to low level communication such as integrating TLS libraries for security, testing tools development, build tools and processes, and many others.  
 
-I've progressed in my career from being a software engineer to now being a software architect.
-
 ## How I Started
 
 I started writing software in middle school and started out learning BASIC.  My first experience with code was with a book on cryptography for kids and making your own secret codes.  There was a BASIC program in the back of the book, and I asked my dad to convert it to Visual Basic.  I remember reading through the code trying to understand what it meant.
