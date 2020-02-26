@@ -1,8 +1,9 @@
 +++ 
 date = "2020-01-02"
-title = "Arduino Dancing Car Bot"
+title = "Arduino and Protothreads"
 tags = ["arduino", "robotics", "threading", "protothreads"]
 categories = ["blog"]
+draft = true
 +++
 
 One major challenge in developing for small microprocessors is the lack of conveniences.  Particularly in the area of threading, it can become challenging.
