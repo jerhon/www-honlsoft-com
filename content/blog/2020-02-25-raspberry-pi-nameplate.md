@@ -11,7 +11,7 @@ So,  I decided to make a Raspberry PI driven kiosk.  This PoC is a nameplate for
 
 I'll be writing a number of posts over the coming weeks about how this was built.  Some design decisions that I had to make to get it working, and a few the rough spots I had to overcome.
 
-Overall it was a fun little project, and most of the code was done mostly over some downtime during a weekend and a few weeknights.  Physical assembly of the it was completed over the weekend. I added a case in the back to make sure no one gets shocked, and it came Tuesday, so I put that on Tuesday night.
+Overall it was a fun little project, and the code was done mostly over some downtime during a weekend and a few weeknights.  Physical assembly of the it was completed over the weekend. I added a case in the back to make sure no one gets shocked, and it came Tuesday, so I put that on Tuesday night.
 
 For this first post, I just wanted to introduce the project, and share a few screenshots of what I had built.  If you work at BSE and this interests you, feel free to stop on over sometime and have a chat, or reach out on LinkedIn if you aren't at BSE!
 
