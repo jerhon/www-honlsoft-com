@@ -8,7 +8,7 @@ This website is my personal musings in software development.  Typically articles
 
 # About Me
 
-I'm a software engineer and architect with over 14 years of professional software development experience and 20 years of programming experience.  I enjoy building software, and the challenges that rise from building it.  Particularly, I enjoy brining projects to completion and leading teams to successful software implementations.
+I'm a software engineer and architect with over 14 years of professional software development experience and 20 years of programming experience.  I enjoy building software, and the challenges that rise from building it.  Particularly, I enjoy bringing projects to completion and leading teams to successful software implementations.
 
 I'm currently Software Architect at Border States Electric.  There I have been involved in development for a wide range of projects ranging from integrations, mobile application, and web development.  This has been in a variety of different technology stacks such as .NET Core, Java, Spring Framework, AngularJS / Angular, Apache Cordova.  All this in just the first year on the Job!
 
