@@ -35,3 +35,6 @@ menu:
         - name:  "About"
           weight:  2
           url:  "/about/"
+        - name: "Projects"
+          weight:  3
+          url: "/projects/"
