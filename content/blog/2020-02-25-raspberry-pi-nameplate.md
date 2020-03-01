@@ -1,7 +1,7 @@
 +++ 
 date = "2020-02-25"
 title = "The Pi-plate: An Interactive Raspberry Pi Driven Nameplate"
-tags = ["networking", "pi-hole", "dns", "raspberry-pi" ]
+tags = ["pi-plate", "raspberry-pi" ]
 categories = ["blog"]
 +++
 
