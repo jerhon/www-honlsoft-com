@@ -7,6 +7,8 @@ defaultcontentlanguage: "en"
 paginate: 20
 canonifyurls: true
 
+disqusShortname: honlsoft
+
 markup:
   highlight:
     codeFences: true
@@ -31,5 +33,5 @@ menu:
           weight:  1
           url:  "/blog/"
         - name:  "About"
-          weight:  3
+          weight:  2
           url:  "/about/"
