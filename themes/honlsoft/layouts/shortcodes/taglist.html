@@ -1,0 +1,13 @@
+<nav class="flex-grow">
+    {{ $tag := .Get 0 }}
+    {{ $all_tags := index .Site.Taxonomies "tags"}}
+    {{ $specific_tag := index $all_tags $tag}}
+    <ul class="taglist">
+      {{ range sort $specific_tag.Pages "Date" "asc" }}
+      <li><a  href="{{ .Params.ExternalLink | default .RelPermalink }}">   
+        {{ .Title }}
+        <!-- - <span class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span> -->
+      </a></li>
+      {{ end }}
+    </ul>
+</nav>
