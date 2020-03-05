@@ -22,7 +22,7 @@ Overall the work required the following:
 
 ## Prerequisites
 
-On the Raspberry Pi, I'm assuming that the graphical Raspbian distribution without extras has been installed, and the packages have been updated through apt.  The only other dependency that explicitly needs to be installed is ```unclutter```.  This can be installed through ```sudo apt install unclutter```
+On the Raspberry Pi, I'm assuming that the graphical Raspbian distribution without extras has been installed, and the packages have been updated through apt.  The only other dependency that explicitly needs to be installed is ```unclutter```.  This can be installed through apt: ```sudo apt install unclutter```
 
 ## Setting up a New User for Auto-login
 
