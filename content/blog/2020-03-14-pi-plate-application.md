@@ -5,7 +5,7 @@ tags = ["pi-plate", "raspberry-pi", "linux"]
 categories = ["blog"]
 +++
 
-In my previous posts, I've introduced my pi-plate and described how I set up a Raspberry Pi to work as a kiosk.   In this post, I will briefly describe the application I built. 
+In my previous posts, I've introduced my [pi-plate project](https://www.honlsoft.com/projects/pi-plate/) and described how I set up a Raspberry Pi to work as a kiosk.   In this post, I will briefly describe the application I built. 
 
 I put the application I wrote up on [Netlify](https://www.netlify.com) to see, and the source code for the application is on [GitHub](https://github.com/jerhon/pi-plate).  [A link for the running application is here.](https://hs-pi-plate.netlify.com)
 
@@ -35,6 +35,33 @@ All the pages in the application consist of a similar layout.  They have a heade
 There are a few key pieces to this to get it working correctly.
 * Using ng-component with select to include content in sections within the page.
 * Designing a reusable full page flex-box layout.
+
+## Using Flexbox to Create a Full Page Layout
+
+Flexbox is a great technology to use on modern browsers for laying out content.  Flexbox allows building a sequence of boxes on a page in either a row or column.  It can control aspects such as the size of the individual flex items in the flex box, whether they grow, shrink, wrap, etc.
+
+All pages in application, are three boxes stacked vertically on top of each other in a flexbox layout.
+
+```
+|=================|
+| A Title Area    |
+|=================|
+|                 |
+| Content         |
+|                 |
+|=================|
+| An actions area |
+|=================|
+```
+
+All the areas fit into a single ```<div>``` container element which defines the flexbox.  The key ingredient here is to prevent overflow on the container and set the height to the height of the viewport.  This will squish the rest of the contents
+
+The title area fits into another ```<div>``` which does not allow grow or shrinking, and it's flex basis is set to automatically be the height of it's content.
+
+The content area fits into another ```<div>``` which grows to fill any unused space and is set to automatically scroll when the content becomes to big to fit within the space.
+
+The action are fits into another ```<div>``` which like the title doesn't allow growing or shrinking but fits to the height of it's content.
+
 
 ## Including Content with ng-component and select
 
@@ -69,32 +96,6 @@ This ng-content is allowing users of this component to insert elements within th
 The paragraph gets inserted into the are with the ```ng-component [page-content]``` selector within the main div.  
 
 This is a really powerful tool for building reusable layouts, and a major advantage modern web development frameworks such as angular provide.
-
-## Using Flexbox to Create a Full Page Layout
-
-Flexbox is a great technology to use on modern browsers for laying out content.  Flexbox allows building a sequence of boxes on a page in either a row or column.  It can control aspects such as the size of the individual flex items in the flex box, whether they grow, shrink, wrap, etc.
-
-All pages in application, are three boxes stacked vertically on top of each other in a flexbox layout.
-
-```
-|=================|
-| A Title Area    |
-|=================|
-|                 |
-| Content         |
-|                 |
-|=================|
-| An actions area |
-|=================|
-```
-
-All the areas fit into a single ```<div>``` container element which defines the flexbox.  The key ingredient here is to prevent overflow on the container and set the height to the height of the viewport.  This will squish the rest of the contents
-
-The title area fits into another ```<div>``` which does not allow grow or shrinking, and it's flex basis is set to automatically be the height of it's content.
-
-The content area fits into another ```<div>``` which grows to fill any unused space and is set to automatically scroll when the content becomes to big to fit within the space.
-
-The action are fits into another ```<div>``` which like the title doesn't allow growing or shrinking but fits to the height of it's content.
 
 # Nameplate Component
 
