@@ -1,7 +1,7 @@
 +++ 
 date = "2020-03-14"
 title = "The Pi-plate: The Nameplate Application"
-tags = ["pi-plate", "raspberry-pi", "linux"]
+tags = ["pi-plate", "angular"]
 categories = ["blog"]
 +++
 
