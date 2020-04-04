@@ -4,7 +4,7 @@ theme: "honlsoft"
 languagecode: "en"
 defaultcontentlanguage: "en"
 
-paginate: 20
+paginate: 8
 canonifyurls: true
 
 disqusShortname: honlsoft
