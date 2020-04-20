@@ -39,7 +39,7 @@ The US map was built out as a separate component, so I can reuse it in later pro
 
 The downside to the SVG map is that it won't work on Internet Explorer as expected as it does in other browsers.  However, if you're still running Internet Explorer, it's time to switch!  I'm not planning on improving the application to work with archaic web browsers.
 
-The map has a color grading based on positive test results. Figuring out a proper scale for the colors across the US map. I originally tried a purely linear scale.  However, the number of cases are highly disproportionate from New York to other places in the U.S.  This made New York a single color, and other states with little variation.  I tried a logarithmic scale, but the colors looked too similar between states.  I settled on a combination of the two, which allowed for a color variation that I feel like gives some help determining where the main hot spot is, but also some differentiation for states on the lower side of the spectrum for cases.
+I set the map has a color grading based on positive test results. Deducing a meaningful color scale for the colors across the US map was tricky. I originally tried a purely linear scale.  However, the number of cases are highly disproportionate from New York to other places in the U.S.  This made New York a single color, and other states with little variation.  I tried a logarithmic scale, but the colors looked too similar between states.  It looked like everywhere was really close to New York for a case count.  I settled on a combination of the two, which allowed for a color variation that I feel like gives some help determining where the main hot spots are, but also some differentiation for states on the lower spectrum of the scale.
 
 ## Summary
 
