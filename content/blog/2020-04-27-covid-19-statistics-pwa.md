@@ -122,4 +122,4 @@ This also lacks the luster of having "an app" in a store, and some business user
 
 ## Wrapping Up
 
-This will be the last post in this series about my COVID-19 tracker and likely the last feature I'll be adding.  It's been a fun little project.  I hope it's been useful for other folks as well.
+This will be the last post in this series about my COVID-19 Statistics Web App and likely the last feature I'll be adding.  It's been a fun little project.  I hope it's been useful for other folks as well.
