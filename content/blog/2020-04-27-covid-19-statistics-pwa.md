@@ -17,7 +17,7 @@ In order to make a web application work as a normal application on a phone, it n
 
 This is also used to improve experiences when working in a normal web browser.  In today's world, web applications are littered with assets and JavaScript libraries that are very large.  While caching can help, loading time can be expensive.  By using a service worker to cache these files, it can improve performance even when the web site isn't running as a normal PWA.
 
-Finally to recognize that some website is a PWA and to describe some of it's capabilities.  For example, is there a certain orientation the web app should be used in, or what's the name of the application installed on the phone?  This can be done through a web manifest.  The manifest is referenced in the header of the webpage by a link element.
+Finally a manifest is required to recognize that some website is a PWA and to describe some of it's capabilities.  For example, is there a certain orientation the web app should be used in, or what's the name of the application installed on the phone?  This can be done through a web manifest.  The manifest is referenced in the header of the webpage by a link element.
 
 # Setting up the Angular Project
 
@@ -33,9 +33,9 @@ This by itself is usually enough to get an application to work as a PWA, but the
 
 ## Set up the Icons
 
-The setup with the PWA will include a number of files named something like 'icon-*.png' that can be used as icons at various resolutions.  Just replace these with the desired icon for your application.
+The setup with the PWA will include a number of files named something like 'icon-*.png' that can be used as icons at various resolutions.  Just replace these with the desired icon for the application.
 
-Keep in mind here, is that there are a few icons that are required to be provided.  Those are the 512x512 and 192x192 icons.  Any usage of those icons will be scaled to the other sizes if required.  Angular will produce a manifest with a variety of different sizes, the other sizes can be removed.  If you wish you could provide an icon for all of them, but it's not entirely necessary.
+Keep in mind, there are a few icons that are required to be provided.  Those are the 512x512 and 192x192 icons.  They will be scaled to the other sizes if required.  Angular will produce a manifest with a variety of different sizes, the other sizes can be removed.  Provide an icon for all the sizes is possible, but it's not entirely necessary.
 
 ## Review the Generated Manifest
 
@@ -74,7 +74,7 @@ While caching deals with the static assets of the application, it does not deal 
 
 Rather than trying to catch all errors from all APIs individually, I'm going to create an HTTP interceptor to capture an error on any API call and display a modal over the page to indicate there is an error.
 
-An HTTP interceptor can be used to alter or inspect all HTTP requests made by an angular application.  These are particularly useful in cases where an API token needs to be provided, or if you want to provide a login page if an API returns a 401 Unauthorized response, or in cases where you want to log all the HTTP requests out of an application.
+An HTTP interceptor can be used to alter or inspect all HTTP requests made by an angular application.  These are particularly useful in cases where an API token needs to be provided, or to provide a login page if an API returns a 401 Unauthorized response, or to log all the HTTP requests out of an application.
 
 ```typescript
 @Injectable()
@@ -102,15 +102,21 @@ To get it to take effect on all HttpClient's, it can be registered via a provide
 }
 ```
 
+I created a separate angular service which contained a subject the interceptor could push errors to and the application component could subscribe to receive the errors.
+
 ## Testing the PWA Locally
 
 When testing the PWA locally, beware, the typical ```ng serve``` command used to debug a web application locally doesn't work.  Instead run ```ng build --prod``` and use an http server such as the NPM ```http-server``` package against the dist folder to get it to work.
 
 ## Downsides to the Approach
 
-There are a few downsides to this approach.  It assumes the folks are on the cutting edge browser and OS.  This is now adopted in most major browsers, but it is fairly new in the realm of web development.  
+There are a few downsides to this approach.
+
+It assumes the folks are on the cutting edge browser and OS.  This is now adopted in most major browsers, but it is fairly new in the realm of web development.  
 
 Browser vendors drive when an application can be installed or not.  This presents itself as some weird interactions particularly in cases where an application may be uninstalled and then installed again.  It sometimes will take several refreshes of the browser, and the cache and or service worker may need to get cleared forcibly to get it to show immediately.
+
+Application refreshes are not immediate either.  An PWA is updated in the background, so it needs to be open and closed, and then open and closed again for changes to occur.
 
 This also lacks the luster of having "an app" in a store, and some business users just want that traditional listing to show up they can install as a status symbol.
 
