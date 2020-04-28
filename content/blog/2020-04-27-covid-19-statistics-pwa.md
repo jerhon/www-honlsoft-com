@@ -9,6 +9,8 @@ In this post, I'm going to be turning the COVID-19 statistics web application I'
 
 In short the main experience I'm looking for is the ability to install the web app as an application on a phone.  Like many of the posts in this series, Angular makes converting a web application to a PWA incredibly easy.  This will also work on the desktop for modern browsers and OSes that support PWAs.
 
+Here is a link to the updated web application: https://hs-covid-19-stats.netlify.app
+
 ![COVID-19 Install Button](/images/covid-19-install.jpg)
 
 ## Brief Overview of PWAs
