@@ -1,0 +1,101 @@
++++
+date = "2020-06-07"
+title = "Calendar Application - Authenticating with MSAL"
+tags = ["pi-calendar", "raspberry-pi", "web-development"]
+categories = ["blog"]
+image = "/images/msal-code.jpg"
++++
+
+The first blog in this series is going to describe authenticating to a registered application in Azure Active Directory via the MSAL library in Angular.
+
+There are a lot of great things about using an external identity service:
+* No on-premises passwords to secure!!
+* Utilizes latest security standards
+* Integration with other identity providers (Facebook, Google, Microsoft) logins without having to integrate with each service
+* Features such as 2 factor authentication, and others are implemented by the authentication provider
+
+In this case, we will be integrating with a specific identity provider (Azure Active Directory).  However, Microsoft is beginning to build in external identity providers to it's service.  Azure AD also provides other options such as B2C.  I'm not going to go into all of those in this article, but just use a simple app registration.
+
+I will not be describing how to set up an Application Registration in Azure.  [Microsoft and Azure do a great job of documenting this already.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
+
+Adding MSAL to the angular application is EXTREMELY simple.  Starting with an angular application, add the MSAL library via command line.
+
+```bash
+npm install msal @azure/msal-angular --save
+```
+
+There are two libraries installed in the previous command.  msal is the base library that has a majority of the implement identity operations.  @azure/msal-angular is an wrapper with some helpful angular utilities around it.  Be careful though, there is an msal-angular package that's also hosted on NPM that is easy to confuse with the official @azure package.
+
+There are three main pieces that are implemented in msal-angular I found useful for this project.
+
+* MsalModule - The angular module to import, it also can be used to supply the configuration.
+* MsalGuard - A route guard that redirects to an Azure AD login for a route if the person is not authenticated.
+* MsalInterceptor - Automatically injects authentication tokens on calls to the Microsoft Graph APIs.  I will be talking about that more in a future post.
+
+## Setting up the MsalModule
+
+First, the MsalModule needs to be setup.  This includes some configuration about how to reach the Azure App Registration.
+
+```typescript
+const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1;
+
+export const protectedResourceMap: [string, string[]][] = [
+  ['https://graph.microsoft.com/v1.0/me', ['user.read', 'calendars.read', 'calendars.read.shared']],
+  ['https://graph.microsoft.com/beta/me', ['user.read', 'calendars.read', 'calendars.read.shared']]
+];
+
+// ... in the module imports ...
+
+MsalModule.forRoot(
+  {
+    auth: {
+      clientId: environment.clientId,
+      redirectUri: environment.redirectUri,
+    },
+    cache: {
+      cacheLocation: "localStorage",
+      storeAuthStateInCookie: isIE, // set to true for IE 11
+    }
+  },
+  {
+    popUp: isIE,   
+    consentScopes: [
+      "user.read",
+      "openid",
+      "profile",
+      "calendars.read",
+      "calendars.read.shared"
+    ],
+    unprotectedResources: ["https://www.microsoft.com/en-us/"],
+    protectedResourceMap,
+    extraQueryParameters: {}
+  }
+)
+```
+
+The main part here is the configuration.  Getting the client ID, redirect URL, and the right scopes.  The protected resource map will be used later with the MsalInterceptor to indicate which URLs need to be authenticated to.  The MsalInterceptor is used on the HttpClient to intercept any http calls and inject an auth token to the request.
+
+There are two configuration objects. The tutorials online in the package didn't include the second  configuration. It caused me issues right away as the MsalGuard was looking for the configured scopes.  Once I added the parameters to the second, it worked.
+
+The scopes in this case allow me to read a user, the user's profile, and calendar.  When signing in for the first time the application will show a list of the of the permissions the application is requesting and ask for the user to approve.  To call additional Microsoft Graph APIs additional scopes would need to be added.
+
+In the protected resources, you'll notice two URLs to the Microsoft Graph API.  The ```https://graph.microsoft.com/v1.0/me``` URL is their stable API.   The second ```https://graph.microsoft.com/beta/me```, contains beta features that have not yet made it to stable.  I had to use the beta APIs to return my personal profile picture.
+
+## Using the MsalGuard to Protect Pages
+
+Remember, this is a web application, EVERYTHING runs in the browser.  So, even though a MsalGuard is in place doesn't mean the page is protected.  Someone could easily modify the code to circumvent that guard.  Protect the backend with the appropriate security means.
+
+With all that said... This application uses Angular routing.  The first page contains the next event in the day, and the second page contains a list of all events for the day.  To protect those pages so that a user needs to be signed in, the MsalGuard can be used on the route guards.
+
+```typescript
+const routes: Routes = [
+  { path: '', pathMatch:'full', component: DashboardComponent, canActivate: [MsalGuard] },
+  { path: 'calendar', pathMatch:'full', component: CalendarComponent, canActivate: [MsalGuard]}
+];
+```
+
+Note the ```[MsalGuard]``` included above in the canActivate configuration.  That is all it takes, now when a user hits the page, they will be forced to sign in.
+
+## Wrapping Up
+
+This was the work it took to sign in via a Microsoft Identity to the application.  In the next article, I will be talking about setting up the MsalInterceptor to make API request to the Microsoft Graph APIs.
