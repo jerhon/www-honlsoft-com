@@ -1,3 +1,10 @@
+{{define "head"}}
+<meta name="og:title" content="{{ .Title }}">
+<meta name="og:type" content="article">
+{{ if .Params.image }}
+<meta name="og:image" content="{{ .Params.image }}">
+{{end}}
+{{end}}
 {{define "content"}}
 {{ partial "breadcrumb.html" .}}
 <section class="article">
