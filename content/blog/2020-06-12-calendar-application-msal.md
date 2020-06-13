@@ -8,13 +8,13 @@ image = "/images/msal-code.jpg"
 
 The first blog in this series is going to describe authenticating to a registered application in Azure Active Directory with Microsoft's MSAL package in Angular.
 
-There are a lot of great things about using an external identity service:
+There are a lot of great things about using an identity service:
 * No on-premises passwords to secure!!
 * Utilizes latest security standards
 * Integration with other identity providers (Facebook, Google, Microsoft) logins without having to integrate with each service
 * Features such as 2 factor authentication, and others are implemented by the authentication provider
 
-In this case, we will be integrating with a specific identity provider (Azure Active Directory).  However, Microsoft is beginning to build in external identity providers to it's service.  Azure AD also provides other options such as B2C, and external identities which can also integrate with different providers.  I'm not going to go into all of those in this article, but just use a simple app registration.  I will not be describing how to set up an Application Registration in Azure.  [Microsoft and Azure do a great job of documenting this already.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
+In this case, we will be integrating with a specific identity provider (Azure Active Directory).  Azure AD also provides other options such as B2C, and external identities which can also integrate with different providers.  I'm not going to go into all of those in this article, but just use a simple app registration.  I will not be describing how to set up an Application Registration in Azure.  [Microsoft and Azure do a great job of documenting this already.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
 
 Adding MSAL to the Angular application is EXTREMELY simple.  Starting with an angular application, add the MSAL packages via command line.
 
