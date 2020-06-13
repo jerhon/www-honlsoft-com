@@ -14,7 +14,7 @@ There are a lot of great things about using an identity service:
 * Integration with other identity providers (Facebook, Google, Microsoft) logins without having to integrate with each service
 * Features such as 2 factor authentication, and others are implemented by the authentication provider
 
-In this case, we will be integrating with a specific identity provider (Azure Active Directory).  Azure AD also provides other options such as B2C, and external identities which can also integrate with different providers.  I'm not going to go into all of those in this article, but just use a simple app registration.  I will not be describing how to set up an Application Registration in Azure.  [Microsoft and Azure do a great job of documenting this already.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
+The application will be integrating with a specific identity provider (Azure Active Directory).  Azure AD also provides other options such as B2C, and external identities which can also integrate with different providers.  I'm not going to go into all of those in this article, but just use a simple app registration.  I will not be describing how to set up an Application Registration in Azure.  [Microsoft and Azure do a great job of documenting this already.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
 
 ## Add the MSAL Packages
 
@@ -75,11 +75,11 @@ MsalModule.forRoot(
 
 The main part here is the configuration.  Getting the client ID, redirect URL, and the right scopes.  The protected resource map will be used later with the MsalInterceptor to indicate which URLs need auth tokens.  The MsalInterceptor is used on the HttpClient to intercept any http calls and inject an auth token to the request.
 
-In this case I have set up a value in the environment.ts file, and made a separate environment for local development.  I also have two app registrations.  One for my hosted application, and one for my local development.  This is to keep people from masquerading as my application and performing redirects on localhost for nefarious purposes.
-
 There are two configuration objects. The tutorials online in the package didn't include the second  configuration. Without it, I had issues right away as the MsalGuard was looking for the configured scopes.  Once I added the parameters to the second configuration, it worked fine.
 
-The scopes define the permissions the application is allowed to use, and what is requested of a user. in this case allow me to read a user, the user's profile, and calendar.  When signing in for the first time the application will show a list of the of the permissions the application is requesting and ask for the user to approve.  To call additional Microsoft Graph APIs additional scopes would need to be added.
+I have set up some of these configuration values in the environment.ts file, and made a separate environment for local development.  This way I can have two app registrations.  One for my hosted application, and one for local development.  This is to keep people from masquerading as my application and performing redirects on localhost for nefarious purposes.
+
+The scopes define the permissions the application is allowed to use, and what is requested of a user. It will allow the application to read a user, the user's profile, and calendar.  When signing in for the first time the application will show a list of the of the permissions the application is requesting and ask for the user to approve.  To call additional Microsoft Graph APIs additional scopes would need to be added.
 
 In the protected resources, you'll notice two URLs to the Microsoft Graph API.  The ```https://graph.microsoft.com/v1.0/me``` URL is their stable API.   The second ```https://graph.microsoft.com/beta/me```, contains beta features that have not yet made it to stable.  I had to use the beta APIs to return my personal profile picture.
 
@@ -87,7 +87,7 @@ In the protected resources, you'll notice two URLs to the Microsoft Graph API.  
 
 This application uses Angular routing.  The first page contains the next event in the day, and the second page contains a list of all events for the day.  To protect those pages so that a user needs to be signed in, the MsalGuard can be used on the route guards.
 
-Remember, this is a web application, EVERYTHING runs in the browser.  So, even though a MsalGuard is in place doesn't mean the page is protected.  Someone could easily modify the code to circumvent that guard.  As always, protect any backend or APIs with the appropriate security.
+Remember, this is a web application, EVERYTHING runs in the browser.  Even though a MsalGuard is in place doesn't mean the page is protected.  Someone could easily modify the code to circumvent that guard.  As always, protect any backend or APIs with the appropriate security.
 
 ```typescript
 const routes: Routes = [
@@ -102,7 +102,7 @@ Note the ```[MsalGuard]``` included above in the canActivate configuration.  Tha
 
 ## Oustanding Issues
 
-I have been having some intermittent issues regarding timeouts and retrieving tokens.  I thought it was part of the configuration I had set up, but after investigating it, it seems a pretty common problem with the library being investigated.  Check out the GitHub issue on the library: https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/1222
+I have been having some intermittent issues regarding timeouts and retrieving tokens.  I thought it was part of the configuration I had set up, it seems a pretty common problem with the library right now.  [Here is the GitHub issue.](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/1222)
 
 ## Wrapping Up
 
