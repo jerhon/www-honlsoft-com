@@ -16,7 +16,9 @@ There are a lot of great things about using an identity service:
 
 In this case, we will be integrating with a specific identity provider (Azure Active Directory).  Azure AD also provides other options such as B2C, and external identities which can also integrate with different providers.  I'm not going to go into all of those in this article, but just use a simple app registration.  I will not be describing how to set up an Application Registration in Azure.  [Microsoft and Azure do a great job of documenting this already.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
 
-Adding MSAL to the Angular application is EXTREMELY simple.  Starting with an angular application, add the MSAL packages via command line.
+## Add the MSAL Packages
+
+Adding MSAL to an Angular application is very simple.  Starting with an Angular application, add the MSAL packages via command line.
 
 ```bash
 npm install msal @azure/msal-angular --save
@@ -26,13 +28,13 @@ There are two libraries installed in the previous command.  msal is the base lib
 
 There are three main pieces that are implemented in msal-angular I found useful for this project.
 
-* MsalModule - The angular module to import, it also can be used to supply the configuration.
+* MsalModule - The Angular module to import, it also can be used to supply the configuration.
 * MsalGuard - A route guard that redirects to an Azure AD login for a route if the person is not authenticated.
 * MsalInterceptor - Automatically injects authentication tokens on calls to the Microsoft Graph APIs.  I will be talking about that more in a future post.
 
 ## Setting up the MsalModule
 
-First, the MsalModule needs to be setup.  This includes some configuration about how to authenticate to the Azure App Registration.
+Next, the MsalModule needs to be setup.  This includes some configuration about how to authenticate to the Azure App Registration.
 
 ```typescript
 const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1;
