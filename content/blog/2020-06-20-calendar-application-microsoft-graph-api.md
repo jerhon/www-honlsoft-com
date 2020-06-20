@@ -5,18 +5,18 @@ tags = ["pi-calendar", "raspberry-pi", "web-development"]
 categories = ["blog"]
 +++
 
-In my previous post, I described setting up an Angular application for authentication through Azure Active Directory using Microsoft's MSAL library.  In this post, I will describe connecting to a Microsoft Graph API utilizing the sign in from the MSAL library.
+In my previous post, I described setting up an Angular application for authentication to a Microsoft Account using Microsoft's MSAL library.  In this post, I will describe connecting to a Microsoft Graph API utilizing the sign in from the MSAL library.
 
 ## Angular HttpClient
 
-Angular has a common helper class utilized in order to make API calls to external services.  It is HttpClient.  This has a lot of convenience methods to call make HTTP requests and call restful APIs.
+Angular has a helper class that can be utilized to make API calls to external services.  It is HttpClient.  This has a lot of convenience methods to call make HTTP requests and call restful APIs.
 
 This is great, because typically an outside library is needed to perform API requests and abstract away unfriendly or incompatible browser implementations.  Angular provides that out of the box.
 
-In order to use this class, import the HttpClientModule in the module definition in the Angular application.
+To use this class, first import the HttpClientModule in the module definition in the Angular application.
 
 ```typescript
-// ... the rest of your module configuration here...
+// ... the rest of the module configuration here...
 imports: [
     // ... some modules here 
     HttpClientModule
@@ -24,9 +24,7 @@ imports: [
 ]
 ```
 
-To use the HttpClient in code, it can be injected via a constructor, and called in a class.
-
-A good pattern is to put all HTTP access code in it's own Angular service.
+Once it's been imported, it can be injected via a constructor, and called in a class.
 
 This is a bit of a more advanced example, but here I am getting the profile photo for my Microsoft profile.  I've simplified the call just for example here.  I'll write another post on how to take the image and display it in an image element.  The goal here is just to get the scaffolding together to make a successful API request.
 
@@ -47,9 +45,11 @@ export class CalendarService {
 
 The HttpClient returns an Observable which can be subscribed to by whatever consumes the service and calls the method.  However, one of the key pieces still missing is authenticating to that Microsoft Graph API call.
 
+A good pattern is to put all HTTP access code in it's own Angular service away from the actual UI logic.
+
 ## Providing Authentication Tokens in the HttpClient
 
-The msal-angular library provides the MsalInterceptor.  This needs to included as a provider in your angular module definition.
+The msal-angular library provides the MsalInterceptor.  This needs to  be included as a provider in the angular module definition.
 
 ```typescript
 providers: [
@@ -69,9 +69,9 @@ Under the covers this is using an HttpInterceptor.  An HttpInterceptor is a spec
 
 The HttpInterceptor is a really great construct.  It allows for things like centralized logging, error handling, authentication token injection, and so forth.
 
-Just be careful, remember when scoping an HttpInterceptor to make sure if sending something such as authentication information or modifying an HTTP request, it is only done for those URLs to the resource you are requesting.  For example, it would be bad if an authentication token for the Microsoft Graph API were passed to a non-Microsoft endpoint.  It could have potentially shared an access token with a third party that could utilize it for nefarious purposes.
+Just be careful, remember when scoping an HttpInterceptor to make sure if sending something such as authentication information or modifying an HTTP request, it is scoped to the appropriate URLs.  It would be bad if an authentication token for the Microsoft Graph API were passed to a non-Microsoft endpoint.  It could have potentially shared an access token with a third party that could utilize it for nefarious purposes.
 
-This is why in the previous article, there was the protected resources URLs.  These are there to limit exactly where the authentication token is sent.
+This is why in the previous article, there were the protected resource URLs.  These are there to limit exactly where the authentication token is sent.
 
 ```typescript
 export const protectedResourceMap: [string, string[]][] = [
